@@ -1,0 +1,19 @@
+﻿@model NET.S._2019.Pristavko._19.Models.IndexViewModel
+@using NET.S._2019.Pristavko._19.HtmlHelpers
+@{
+    ViewBag.Title = "Home Page";
+}
+<div class="row">
+    @foreach (var item in Model.Photos)
+    {
+        <div class="col-4 col-sm-4 col-md-4 col-xl-4 thumb ">
+            <a class="fancybox-button" rel="fancybox-button" href="@Html.Name(item.ImagePath)" title="@Html.Name(item.Decription)">
+                <img class="img-fluid" src="@Html.Name(item.ThumbPath)" alt="@Html.Name(item.Decription)">
+            </a>
+        </div>
+    }
+</div>
+<br />
+<div class="btn-group">
+    @Html.PageLinks(Model.PageInfo, x => Url.Action("Index", new { page = x }))
+</div>
